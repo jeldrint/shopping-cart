@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import RenderItem from "./RenderItem";
 import Cart from '../images/cart.png'
+import Candies from "./Candies";
+import AddToCartPage from "./AddToCartPage";
 
 const CandyStore = () => {
+    const [cartItems,setCartItems] = useState(0);
+    const [cartAmount, setCartAmount] = useState(0);
+
+    useEffect(()=>{
+        const itemClick = (e) => {
+            if(e.target.className === 'store-items' || e.target.parentNode.className === 'store-items'){
+                setCartItems(prevVal => prevVal +1);
+                <AddToCartPage />
+            }else{
+                e.preventDefault();
+            }
+        }
+        document.addEventListener('click',itemClick);
+        return () => document.removeEventListener('click',itemClick);
+    },[])
 
     return (
         <>
@@ -10,7 +27,7 @@ const CandyStore = () => {
                 <h1 style={{margin: 0}}>Candies be love</h1>
                 <div className="cart">
                     <img src ={Cart} className="cart-logo"/>
-                    <span className="cart-notif">0</span>
+                    <span className="cart-notif">{cartItems}</span>
                 </div>
             </div>
             <div className="store-content">
