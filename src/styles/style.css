@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap');
 
+#root {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+
+/* STORE */
 .store-content{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -7,7 +16,47 @@
     column-gap: 50px;
 }
 
+.store-content > * {
+    cursor: pointer;
+}
+
 .store-items{
     display: grid;
     grid-template-rows: 30px 1fr;
+    transition: 0.15s;
+    padding: 10px;
+}
+
+.store-items:hover {
+    background-color: rgba(33,33,33,0.3);
+    border-radius: 10px;
+}
+
+.store-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CART */
+.cart-logo{
+    cursor: pointer;
+    width: 50px;
+    transition: 0.15s;
+    z-index: 1;
+}
+.cart-logo:hover{
+    filter: contrast(0.5);
+    width: 51px;    
+}
+
+.cart-notif{
+    background-color: red;
+    color:aliceblue;
+    padding: 3px;
+    font-weight: 700;
+    border-radius: 5px;
+
+    position: absolute;
+    z-index: 1000;
 }
