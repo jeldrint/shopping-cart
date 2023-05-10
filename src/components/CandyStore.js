@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import RenderItem from "./RenderItem";
 
 const CandyStore = () => {
@@ -8,7 +8,9 @@ const CandyStore = () => {
     return (
         <>
             <h1>Candy Store</h1>
-            <RenderItem />
+            <div className="store-content">
+                <RenderItem />
+            </div>
         </>
     )
 }
