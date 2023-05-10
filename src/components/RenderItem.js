@@ -12,7 +12,7 @@ const RenderItem = () => {
                 <div className="store-items">
                     <h3>{item.name}</h3>
                     <h5>{item.description}</h5>
-                    <h3>$ {item.price}</h3>
+                    <h3 id='price'>$ {item.price}</h3>
                 </div>
                 )
             })}

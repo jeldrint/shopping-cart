@@ -3,8 +3,11 @@
 .store-content{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    column-gap: 50px;
 }
 
 .store-items{
-
+    display: grid;
+    grid-template-rows: 30px 1fr;
 }
