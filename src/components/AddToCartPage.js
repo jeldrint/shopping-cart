@@ -1,9 +1,9 @@
 import React from "react";
 
-const AddToCartPage = () => {
+const AddToCartPage = ({candy}) => {
     return (
         <>
-            <h1>Add to Cart!</h1>
+            <h1>{candy}</h1>
         </>
     )
 }
