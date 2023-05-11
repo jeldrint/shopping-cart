@@ -7,9 +7,9 @@ const RenderItem = () => {
     
     return (
         <>
-            {candies.map((item,i) =>{
+            {candies.map((item) =>{
                 return(
-                <div className='store-items' id={i}>
+                <div className='store-items' id={item.name}>
                     <h3>{item.name}</h3>
                     <h5>{item.description}</h5>
                     <h3 id='price'>$ {item.price}</h3>

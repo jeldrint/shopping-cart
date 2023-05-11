@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import RenderItem from "./RenderItem";
 import Cart from '../images/cart.png'
-import Candies from "./Candies";
 import AddToCartPage from "./AddToCartPage";
+import {Link} from 'react-router-dom'
 
 const CandyStore = () => {
     const [cartItems,setCartItems] = useState(0);
@@ -24,7 +24,9 @@ const CandyStore = () => {
     return (
         <>
             <div className="store-header">
-                <h1 style={{margin: 0}}>Candies be love</h1>
+                <h1 style={{margin: 0}}>
+                    <Link to='/'>Candies be love</Link>
+                </h1>
                 <div className="cart">
                     <img src ={Cart} className="cart-logo"/>
                     <span className="cart-notif">{cartItems}</span>
