@@ -6,7 +6,7 @@ const CandyStore = ({setCartItems, setCandy, candy}) => {
 
     useEffect(()=>{
         const itemClick = (e) => {
-            console.log(e.target)
+            //console.log(e.target.tagName.toLowerCase())
             if(e.target.className === 'store-items' || e.target.parentNode.className === 'store-items'){
                 setCartItems(prevVal => prevVal +1);
                 if(e.target.className === 'store-items'){
