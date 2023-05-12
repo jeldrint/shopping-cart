@@ -5,7 +5,7 @@ import AddToCartPage from "./AddToCartPage";
 import Home from "./Home";
 import Cart from '../images/cart.png'
 import Candies from "./Candies";
-
+import Checkout from "./Checkout";
 
 const MainPage = () => {
     const [storeItems,setStoreItems] = useState([]);
@@ -14,11 +14,11 @@ const MainPage = () => {
     const [cartAmount, setCartAmount] = useState(0);
 
     useEffect(()=>{
-        if(storeItems.length === 0){
-            Candies.map(candy=>{
-                return setStoreItems(prev=>[...prev, candy])
-            });
-        }
+        Candies.map(candy=>{
+            return setStoreItems(prev=>[...prev, candy])
+        });
+
+        return () => setStoreItems([]);
     },[])
 
     return (
@@ -36,6 +36,7 @@ const MainPage = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='/candy-store' element={<CandyStore setCandy={setCandy} storeItems={storeItems} />} />
                 <Route path='/add-to-cart' element={<AddToCartPage candy={candy} setCartItemCount={setCartItemCount} />} />
+                <Route path='/checkout' element={<Checkout />} />
             </Routes>
         </BrowserRouter>
     )
