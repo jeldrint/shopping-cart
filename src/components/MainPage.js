@@ -9,8 +9,8 @@ import Candies from "./Candies";
 
 const MainPage = () => {
     const [storeItems,setStoreItems] = useState([]);
-    const [cartItems,setCartItems] = useState(0);
-    const [candy, setCandy] = useState([]);
+    const [cartItemCount,setCartItemCount] = useState(0);
+    const [candy, setCandy] = useState([{}]);
     const [cartAmount, setCartAmount] = useState(0);
 
     useEffect(()=>{
@@ -29,13 +29,13 @@ const MainPage = () => {
                 </h1>
                 <div className="cart">
                     <img src ={Cart} className="cart-logo"/>
-                    <span className="cart-notif">{cartItems}</span>
+                    <span className="cart-notif">{cartItemCount}</span>
                 </div>
             </nav>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/candy-store' element={<CandyStore setCartItems={setCartItems} setCandy={setCandy} storeItems={storeItems} />} />
-                <Route path='/add-to-cart' element={<AddToCartPage candy={candy} storeItems={storeItems} />} />
+                <Route path='/candy-store' element={<CandyStore setCandy={setCandy} storeItems={storeItems} />} />
+                <Route path='/add-to-cart' element={<AddToCartPage candy={candy} setCartItemCount={setCartItemCount} />} />
             </Routes>
         </BrowserRouter>
     )

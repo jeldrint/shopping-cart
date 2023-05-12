@@ -4,10 +4,9 @@ import '../styles/style.css'
 import Candies from "./Candies";
 
 
-const CandyStore = ({setCartItems, setCandy, storeItems}) => {
+const CandyStore = ({setCandy, storeItems}) => {
     const itemClick = (e) => {
         if(e.target.className === 'store-items' || e.target.parentNode.className === 'store-items'){
-            setCartItems(prevVal => prevVal +1);
             if(e.target.className === 'store-items'){
                 setCandy(()=>{
                     return Candies.filter(item=>item.name === e.target.id)

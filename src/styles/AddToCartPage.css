@@ -3,4 +3,17 @@
     height: 70vh;
     border-radius: 5px; 
     padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
 }
+
+.cart-panel-buttons{
+    display: flex;
+    column-gap: 15px;
+}
+.add-to-cart-btn{
+    border-radius: 1px;
+}
+
