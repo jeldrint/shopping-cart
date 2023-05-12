@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import CandyStore from "./CandyStore";
 import AddToCartPage from "./AddToCartPage";
 import Home from "./Home";
 import Cart from '../images/cart.png'
+import Candies from "./Candies";
 
 
 const MainPage = () => {
+    const [storeItems,setStoreItems] = useState([]);
     const [cartItems,setCartItems] = useState(0);
-    const [candy, setCandy] = useState('');
+    const [candy, setCandy] = useState([]);
     const [cartAmount, setCartAmount] = useState(0);
 
+    useEffect(()=>{
+        if(storeItems.length === 0){
+            Candies.map(candy=>{
+                return setStoreItems(prev=>[...prev, candy])
+            });
+        }
+    },[])
 
     return (
         <BrowserRouter>
@@ -25,8 +34,8 @@ const MainPage = () => {
             </nav>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/candy-store' element={<CandyStore setCartItems={setCartItems} setCandy={setCandy} candy={candy} />} />
-                <Route path='/add-to-cart' element={<AddToCartPage setCartItems={setCartItems} setCandy={setCandy} candy={candy} />} />
+                <Route path='/candy-store' element={<CandyStore setCartItems={setCartItems} setCandy={setCandy} storeItems={storeItems} />} />
+                <Route path='/add-to-cart' element={<AddToCartPage candy={candy} storeItems={storeItems} />} />
             </Routes>
         </BrowserRouter>
     )

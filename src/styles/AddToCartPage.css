@@ -1,4 +1,6 @@
 .cart-panel{
     background-color: gray;
-    
+    height: 70vh;
+    border-radius: 5px; 
+    padding: 20px;
 }
