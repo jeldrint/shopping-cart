@@ -16,7 +16,7 @@ const MainPage = () => {
         <BrowserRouter>
             <nav className="store-header">
                 <h1 style={{margin: 0}}>
-                    <Link to='/' style={{display: 'inline-block', textDecoration: 'none', color: 'black'}}>Candies be love, {candy}</Link>
+                    <Link to='/' style={{display: 'inline-block', textDecoration: 'none', color: 'black'}}>Candies be love</Link>
                 </h1>
                 <div className="cart">
                     <img src ={Cart} className="cart-logo"/>
@@ -26,7 +26,7 @@ const MainPage = () => {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/candy-store' element={<CandyStore setCartItems={setCartItems} setCandy={setCandy} candy={candy} />} />
-                <Route path='/add-to-cart' element={<AddToCartPage candy={candy} />} />
+                <Route path='/add-to-cart' element={<AddToCartPage setCartItems={setCartItems} setCandy={setCandy} candy={candy} />} />
             </Routes>
         </BrowserRouter>
     )
