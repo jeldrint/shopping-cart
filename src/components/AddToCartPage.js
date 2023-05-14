@@ -4,14 +4,17 @@ import {Link} from 'react-router-dom'
 
 const AddToCartPage = ({candy, setCartItemCount, setCartItems}) => {
     const [totalPrice, setTotalPrice] = useState(0);
+    const [qty, setQty] = useState(0);
+    
 
     const quantity = (e) => {
+        setQty(e.target.value);
         setTotalPrice((e.target.value * candy[0].price).toFixed(2));
     }
 
     const addedToCart = () => {
         setCartItemCount(prevVal => prevVal +1);
-        setCartItems(prev=>[...prev, {name: candy[0].name, price: totalPrice}])
+        setCartItems(prev=>[...prev, {name: candy[0].name, quantity: qty, price: totalPrice}])
     }
     
 

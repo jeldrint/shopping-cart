@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route, Link } from "react-router-dom";
 import CandyStore from "./CandyStore";
 import AddToCartPage from "./AddToCartPage";
 import Home from "./Home";

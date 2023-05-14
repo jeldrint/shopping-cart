@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const Checkout = ({cartItems, sumtotal, setSumtotal}) => {
 
     useEffect(()=>{
-        cartItems.map(item=>setSumtotal(prev=>prev+parseFloat(item.price)));
+        cartItems.map(item=>setSumtotal(prev=>prev+Math.round(item.price*100)/100));
 
         return () => setSumtotal(0)
     },[])
@@ -18,6 +18,7 @@ const Checkout = ({cartItems, sumtotal, setSumtotal}) => {
                         return (
                             <div className='checkout-items-text'>
                                 <span>{item.name} </span>
+                                <span>{item.quantity} pcs</span>
                                 <span>${item.price}</span>
                             </div>
                         )
