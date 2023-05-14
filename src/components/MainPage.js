@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import CandyStore from "./CandyStore";
 import AddToCartPage from "./AddToCartPage";
 import Home from "./Home";
@@ -24,7 +24,7 @@ const MainPage = () => {
     },[])
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <nav className="store-header">
                 <h1 style={{margin: 0}}>
                     <Link to='/' style={{display: 'inline-block', textDecoration: 'none', color: 'black'}}>Candies be love</Link>
@@ -42,7 +42,7 @@ const MainPage = () => {
                 <Route path='/add-to-cart' element={<AddToCartPage candy={candy} setCartItemCount={setCartItemCount} setCartItems={setCartItems}/>} />
                 <Route path='/checkout' element={<Checkout cartItems={cartItems} sumtotal={sumtotal} setSumtotal={setSumtotal} />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
