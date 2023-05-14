@@ -11,7 +11,9 @@ const MainPage = () => {
     const [storeItems,setStoreItems] = useState([]);
     const [cartItemCount,setCartItemCount] = useState(0);
     const [candy, setCandy] = useState([{}]);
-    const [cartAmount, setCartAmount] = useState(0);
+    const [cartItems, setCartItems] = useState([]);
+    const [sumtotal, setSumtotal] = useState(0);
+
 
     useEffect(()=>{
         Candies.map(candy=>{
@@ -28,15 +30,17 @@ const MainPage = () => {
                     <Link to='/' style={{display: 'inline-block', textDecoration: 'none', color: 'black'}}>Candies be love</Link>
                 </h1>
                 <div className="cart">
-                    <img src ={Cart} className="cart-logo"/>
-                    <span className="cart-notif">{cartItemCount}</span>
+                    <Link to='/checkout'>
+                        <img src ={Cart} className="cart-logo"/>
+                        <span className="cart-notif">{cartItemCount}</span>
+                    </Link>
                 </div>
             </nav>
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/candy-store' element={<CandyStore setCandy={setCandy} storeItems={storeItems} />} />
-                <Route path='/add-to-cart' element={<AddToCartPage candy={candy} setCartItemCount={setCartItemCount} />} />
-                <Route path='/checkout' element={<Checkout />} />
+                <Route path='/add-to-cart' element={<AddToCartPage candy={candy} setCartItemCount={setCartItemCount} setCartItems={setCartItems}/>} />
+                <Route path='/checkout' element={<Checkout cartItems={cartItems} sumtotal={sumtotal} setSumtotal={setSumtotal} />} />
             </Routes>
         </BrowserRouter>
     )
